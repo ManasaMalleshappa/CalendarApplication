@@ -4,10 +4,10 @@ var mongoose = require('mongoose');
 
 var eventSchema = mongoose.Schema({
  organizer : {
-    type:mongoose.Schema.ObjectId,ref:"user"
+    type: mongoose.Schema.ObjectId, ref: 'user'
   },
   attendees : [{
-   type:mongoose.Schema.ObjectId,ref:"user"
+   type: mongoose.Schema.ObjectId, ref: 'user'
   }],
   where:{
     type:String
@@ -25,3 +25,7 @@ var eventSchema = mongoose.Schema({
 
 
 var event = module.exports = mongoose.model('event',eventSchema);
+
+module.exports.getEvents = function(callback,limit){
+  event.find(callback).limit(limit);
+}

@@ -5,6 +5,7 @@ var app=express();
 
 
 User = require('./models/user');
+Event = require('./models/event');
 
 mongoose.connect('mongodb://localhost/calendar');
 
@@ -24,6 +25,15 @@ app.get('/api/users',function(req,res){
 			throw err;
 		}
 		res.json(users);
+	});
+});
+
+app.get('/api/events',function(req,res){
+	Event.getEvents(function(err,events){
+		if(err){
+			throw err;
+		}
+		res.json(events);
 	});
 });
 
