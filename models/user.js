@@ -11,8 +11,7 @@ var userSchema = mongoose.Schema({
   mail_id : {
   	type:String,
   	required:true
-  },
-  events : [{type:mongoose.Schema.ObjectId,ref:"event"}]
+  }
 });
 
 var user = module.exports = mongoose.model('user',userSchema);
