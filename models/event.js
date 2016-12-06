@@ -4,13 +4,10 @@ var mongoose = require('mongoose');
 
 var eventSchema = mongoose.Schema({
  organizer : {
-    type:String,
-    required:true,
-    unique:true
+    type:mongoose.Schema.ObjectId,ref:"user"
   },
   attendees : [{
-    type:String,
-    required:true
+   type:mongoose.Schema.ObjectId,ref:"user"
   }],
   where:{
     type:String
@@ -23,7 +20,7 @@ var eventSchema = mongoose.Schema({
   },
   end_date:{
     type:Date
-  },{collection: "calendar.event"}
+  }
 });
 
 
